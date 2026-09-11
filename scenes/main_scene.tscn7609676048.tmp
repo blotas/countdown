@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bvpm8ssq3ne8s"]
+
+[ext_resource type="Texture2D" uid="uid://dnsomjfnfqnmg" path="res://sprites/restaurant_floor.png" id="1_w2twt"]
+[ext_resource type="Script" uid="uid://bq4r6fvympyt4" path="res://scripts/chef.gd" id="2_7ykc4"]
+[ext_resource type="Texture2D" uid="uid://cfub8kar6pdre" path="res://sprites/chef.png" id="3_pu3yx"]
+
+[node name="Node2D" type="Node2D" unique_id=2049066005]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=359847203]
+position = Vector2(960, 540)
+scale = Vector2(0.50000006, 0.5)
+texture = ExtResource("1_w2twt")
+
+[node name="Chef" type="CharacterBody2D" parent="." unique_id=1683862254]
+script = ExtResource("2_7ykc4")
+
+[node name="ChefTexture" type="Sprite2D" parent="Chef" unique_id=200592647]
+position = Vector2(181.99998, 496.99997)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_pu3yx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chef" unique_id=182872175]

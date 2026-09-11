@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="countdown"
+run/main_scene="uid://bvpm8ssq3ne8s"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [physics]
 

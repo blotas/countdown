@@ -1,3 +1,48 @@
 [gd_scene format=3 uid="uid://bvpm8ssq3ne8s"]
 
+[ext_resource type="Texture2D" uid="uid://dnsomjfnfqnmg" path="res://sprites/restaurant_floor.png" id="1_w2twt"]
+[ext_resource type="Script" uid="uid://bq4r6fvympyt4" path="res://scripts/chef.gd" id="2_7ykc4"]
+[ext_resource type="Texture2D" uid="uid://cfub8kar6pdre" path="res://sprites/chef.png" id="3_pu3yx"]
+[ext_resource type="Script" uid="uid://buit60jl4m7de" path="res://scripts/waiter.gd" id="4_pu3yx"]
+[ext_resource type="Texture2D" uid="uid://blge1pqj8awvo" path="res://sprites/waiter.png" id="5_gubc5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gubc5"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqexw"]
+radius = 37.0
+
 [node name="Node2D" type="Node2D" unique_id=2049066005]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=359847203]
+position = Vector2(960, 540)
+scale = Vector2(0.50000006, 0.5)
+texture = ExtResource("1_w2twt")
+
+[node name="Chef" type="CharacterBody2D" parent="." unique_id=1683862254]
+position = Vector2(1254, 511)
+script = ExtResource("2_7ykc4")
+
+[node name="ChefTexture" type="Sprite2D" parent="Chef" unique_id=200592647]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_pu3yx")
+
+[node name="ChefShape" type="CollisionShape2D" parent="Chef" unique_id=182872175]
+shape = SubResource("CircleShape2D_gubc5")
+
+[node name="Waiter" type="CharacterBody2D" parent="." unique_id=881840735]
+position = Vector2(440, 552)
+safe_margin = 0.001
+script = ExtResource("4_pu3yx")
+
+[node name="WaiterTexture" type="Sprite2D" parent="Waiter" unique_id=1124315954]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_gubc5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Waiter" unique_id=3623767]
+shape = SubResource("CircleShape2D_gqexw")
+
+[node name="Colisions" type="StaticBody2D" parent="." unique_id=1716176959]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisions" unique_id=188058450]
+polygon = PackedVector2Array(869, 924, 996, 924, 996, 156, 1511, 157, 1510, 927, 1188, 927, 1188, 1079, 1918, 1078, 1919, 0, 868, 1)
