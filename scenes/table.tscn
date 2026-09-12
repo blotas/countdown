@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dlglt4jxerw7p"]
+
+[ext_resource type="Texture2D" uid="uid://0pdqngnwvqb7" path="res://sprites/Table_for_2.png" id="1_02ppr"]
+[ext_resource type="Script" uid="uid://dk7humivjnpgq" path="res://scenes/table.gd" id="1_x8522"]
+[ext_resource type="Texture2D" uid="uid://do7jn32xot7yu" path="res://sprites/Table_for_1.png" id="2_eotx8"]
+[ext_resource type="Texture2D" uid="uid://dd3sgtmu7o42" path="res://sprites/action.png" id="4_olh0b"]
+[ext_resource type="Texture2D" uid="uid://d3jq2kinvfcpy" path="res://sprites/Menu_JSTP.png" id="5_u03e6"]
+[ext_resource type="Texture2D" uid="uid://b10bpfgewac0j" path="res://sprites/notification.png" id="6_2f5gb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqexw"]
+size = Vector2(236, 106)
+
+[node name="Table" type="Node2D" unique_id=1304132679]
+script = ExtResource("1_x8522")
+
+[node name="TableForTwo" type="Sprite2D" parent="." unique_id=309739632]
+texture = ExtResource("1_02ppr")
+
+[node name="TableForOne" type="Sprite2D" parent="." unique_id=1788438882]
+position = Vector2(0, -37)
+texture = ExtResource("2_eotx8")
+
+[node name="TopArea" type="Area2D" parent="." unique_id=1813432307]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopArea" unique_id=1156073966]
+position = Vector2(0, -53)
+shape = SubResource("RectangleShape2D_gqexw")
+
+[node name="BottomArea" type="Area2D" parent="." unique_id=133818980]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomArea" unique_id=1774306698]
+position = Vector2(0, 53)
+shape = SubResource("RectangleShape2D_gqexw")
+
+[node name="ActionLabel" type="Sprite2D" parent="." unique_id=1351939711]
+visible = false
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(0.25249997, 0.23566663)
+texture = ExtResource("4_olh0b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=981669208]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=682611802]
+polygon = PackedVector2Array(62, 65, 62, -63, 44.558403, -63, 45, -137, 6, -146, -41, -140, -40, -63, -63, -63, -63, 65, -45, 65, -45, 139, -5, 147, 41, 139, 41, 65)
+
+[node name="MenuTop" type="Sprite2D" parent="." unique_id=1548746901]
+visible = false
+position = Vector2(0, -40)
+rotation = 3.1415927
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("5_u03e6")
+
+[node name="MenuBottom" type="Sprite2D" parent="." unique_id=379352557]
+visible = false
+position = Vector2(0, 40)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("5_u03e6")
+
+[node name="TopTimer" type="Timer" parent="." unique_id=1693753297]
+
+[node name="BottomTimer" type="Timer" parent="." unique_id=1684703812]
+
+[node name="TopNotification" type="Sprite2D" parent="." unique_id=327950325]
+visible = false
+position = Vector2(-51.500004, -81.49999)
+scale = Vector2(0.05000001, 0.05000001)
+texture = ExtResource("6_2f5gb")
+
+[node name="BottomNotification" type="Sprite2D" parent="." unique_id=1234456620]
+visible = false
+position = Vector2(-52.999996, 85.99999)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_2f5gb")
+
+[connection signal="body_entered" from="TopArea" to="." method="_on_top_area_body_entered"]
+[connection signal="body_exited" from="TopArea" to="." method="_on_top_area_body_exited"]
+[connection signal="body_entered" from="BottomArea" to="." method="_on_bottom_area_body_entered"]
+[connection signal="body_exited" from="BottomArea" to="." method="_on_bottom_area_body_exited"]
+[connection signal="timeout" from="TopTimer" to="." method="_on_top_timer_timeout"]
+[connection signal="timeout" from="BottomTimer" to="." method="_on_bottom_timer_timeout"]

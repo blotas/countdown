@@ -7,6 +7,17 @@ const speed = 600
 var has_menu = false
 
 
+func give_menu() -> void:
+	has_menu = false
+	$MenuInHand.visible = false
+	
+func pickup_menu() -> void:
+	has_menu = true
+	$MenuInHand.visible = true
+	
+func put_menu_back() -> void:
+	give_menu()
+
 func get_input():
 	var input_direction = Input.get_vector("waiter_left", "waiter_right", "waiter_up", "waiter_down")
 	velocity = input_direction * speed

@@ -5,23 +5,20 @@ var waiter_in_area;
 @export var menu_pickup_action:Sprite2D
 @export var menu_in_hand:Sprite2D
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	waiter_in_area = false
 
-
-func pickup_menu() -> void:
-	waiter.has_menu = true
-	menu_in_hand.visible = true
-	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if waiter_in_area and Input.is_action_pressed("waiter_action"):
+	if waiter_in_area and Input.is_action_just_pressed("waiter_action"):
 		if not waiter.has_menu:
-			pickup_menu()
-
-
+			waiter.pickup_menu()
+		else:
+			waiter.put_menu_back()
+		
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
