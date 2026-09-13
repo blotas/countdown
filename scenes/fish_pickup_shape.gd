@@ -13,8 +13,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	fish_pickup_action.visible = false
-	
 	if chef_in_area and Input.is_action_just_pressed("chef_action"):
 		if not chef.has_fish:
 			chef.pickup_fish()

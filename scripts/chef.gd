@@ -22,8 +22,6 @@ func put_fish_back() -> void:
 func get_input():
 	var input_direction = Input.get_vector("chef_left", "chef_right", "chef_up", "chef_down")
 	velocity = input_direction * speed
-	print(has_fish)
-	$FishInHand.visible = false
 	if(input_direction[0] < 0):
 		$ChefTextures.play("left_walking")
 	elif(input_direction[0] > 0):
